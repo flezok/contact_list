@@ -6,6 +6,7 @@
 
     <title>Document</title>
 
+    <script src="./js/main.js" defer></script>
     <link rel="stylesheet" href="css/normalize.css" />
     <link rel="stylesheet" href="css/style.css" />
 </head>
@@ -19,14 +20,14 @@
         </a>
     </header>
 
-    <form class="form">
-        <input class="form__input form__input-name" type="text" placeholder="Name"/>
-        <input class="form__input form__input-vacancy" type="text" placeholder="Vacancy"/>
-        <input class="form__input form__input-phone" type="tel" placeholder="Phone +X XXX XXX XX XX"/>
-        <button class="form__btn form__btn-add">ADD</button>
-        <button class="form__btn form__btn-clear">Clear List</button>
-        <button class="form__btn form__btn-search">Search</button>
-    </form>
+    <div class="inputs">
+        <input class="input input-name" type="text" placeholder="Name"/>
+        <input class="input input-vacancy" type="text" placeholder="Vacancy"/>
+        <input class="input input-phone" type="tel" placeholder="Phone +X XXX XXX XX XX"/>
+        <button class="btn btn-add" type="submit">ADD</button>
+        <button class="btn btn-clear" type="submit">Clear List</button>
+        <button class="btn btn-search" type="submit">Search</button>
+    </div>
 
     <section class="contact">
         <div class="contact-table">
