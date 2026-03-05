@@ -1,0 +1,86 @@
+body{
+    background-color: rgb(59, 59, 98);
+}
+
+.header{
+    text-align: center;
+    color: #e4e4e4;
+    padding: 10px;
+    margin-bottom: 30px;
+}
+
+.header__title{
+    font-size: 3em;
+    margin-bottom: 0.2em;
+}
+
+.gitHub-link{
+    font-size: 1.5em;
+}
+
+.form{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 30px;
+    align-items: center;
+}
+
+.contact{
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.contact-table{
+    width: 255px;
+}
+
+.contact-table__item{
+    height: 42px;
+    width: 100%;
+    background-color: #e4e4e4;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #606060;
+    padding: 10px;
+    /* cursor: pointer; */
+}
+
+.form__input{
+    width: 220px;
+    padding: 10px;
+    border-radius: 5px;
+    border-color: transparent;
+    font-size: 16px;
+    background-color: #e4e4e4;
+    transition: all .5s;
+}
+
+.form__input:hover{
+    border: 2px solid #ffcd83;
+}
+
+.form__input:active,
+.form__input:focus{
+    background-color: #fff;
+    outline: 2px solid #fbac34;
+    border-color: transparent;
+    transition: all .2s;
+}
+
+.form__btn{
+    width: 100px;
+    height: 30px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    background-color: #e4e4e4;
+    transition: all .5s;
+}
+
+.form__btn:hover{
+    background-color: #ffcd83;
+}
