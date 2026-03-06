@@ -38,15 +38,20 @@ body{
 }
 
 .contact-table__item{
-    height: 42px;
+    min-height: 42px;
     width: 100%;
     background-color: #e4e4e4;
     font-size: 20px;
-    display: flex;
-    align-items: center;
     border-bottom: 1px solid #606060;
+    font-weight: bold;
+}
+
+
+.contact-table__inner{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     padding: 10px;
-    /* cursor: pointer; */
 }
 
 .input{
@@ -84,3 +89,40 @@ body{
 .btn:hover{
     background-color: #ffcd83;
 }
+
+.contacts-item{
+    font-size: 16px;
+    background: #ababab;
+    width: 100%;
+    padding: 5px 10px;
+    border-top: 1px solid #d8d8d8;
+    /* margin-top: 5px; */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.contacts-item-delete{
+    height: 25px;
+    width: 25px;
+    cursor: pointer;
+    border-radius: 3px;
+    border: none;
+    background-color: #e4e4e4;
+    transition: all .5s;
+    font-size: 14px;
+}
+
+.contacts-item-delete:hover{
+    background-color: #e12e2e;
+    color: #fff;
+}
+
+.contact-table__contacts{
+    display: none;
+}
+
+.contact-table__contacts--active .contact-table__contacts{
+    display: block;
+}
+
