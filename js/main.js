@@ -1,6 +1,7 @@
 window.onload = function () {
-    const btnAdd = document.querySelector(".btn-add");
-    const tableItem = document.getElementsByClassName("contact-table__item");
+    const name = document.querySelector(".input-name");
+    const vacancy = document.querySelector(".input-vacancy");
+    const phone = document.querySelector(".input-phone");
 
     const contactDB = {
         contacts: [],
@@ -8,9 +9,9 @@ window.onload = function () {
         createContactDB() {
 
             const contact = {
-                name: document.querySelector(".input-name").value,
-                vacancy: document.querySelector(".input-vacancy").value,
-                phone: document.querySelector(".input-phone").value,
+                name: name.value,
+                vacancy: vacancy.value,
+                phone: phone.value,
                 created: false
             };
 
@@ -19,6 +20,16 @@ window.onload = function () {
         }
 
     };
+
+    function checkInput(value) {
+
+        if (/[^a-zA-Z]/ig.test(value)){
+            console.log('ошибка, есть цифры или строка не из англ')
+        } else{
+            console.log(value.trim())
+        }
+        
+    }
 
     function createContact(contact) {
         return `
@@ -41,11 +52,16 @@ window.onload = function () {
         `
     }
 
+    const btnAdd = document.querySelector(".btn-add");
+    const tableItem = document.getElementsByClassName("contact-table__item");
+
     btnAdd.addEventListener('click', () => {
 
+        checkInput(name.value);
+        checkInput(vacancy.value);
+        checkInput(phone.value);
 
         contactDB.createContactDB()
-
 
         contactDB.contacts.forEach((e) => {
             [...tableItem].forEach((i) => {
@@ -67,10 +83,11 @@ window.onload = function () {
     });
 
    [...tableItem].forEach(i => {
-    i.addEventListener('click', () => {
-        const count = i.querySelector('.table__item-count');
 
-        const contacts = i.querySelector('.contact-table__contacts');
+    const tableInner = i.querySelector('.contact-table__inner');
+
+    tableInner.addEventListener('click', () => {
+        const count = i.querySelector('.table__item-count');
 
         if (count.textContent.trim().length > 0 && !i.classList.contains('contact-table__contacts--active')) {
             i.classList.add('contact-table__contacts--active');
@@ -79,5 +96,6 @@ window.onload = function () {
         }
     })
    })
+
 
 }
