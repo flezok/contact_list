@@ -98,6 +98,7 @@ window.onload = function () {
 
         if (correctName && correctVacancy && correctPhone) {
             contactDB.createContactDB();
+            console.log(contactDB.contacts);
             contactDB.contacts.forEach((e) => {
                 [...tableItem].forEach((i) => {
                     if (e.name[0].toLowerCase() === i.dataset.id && e.created === false) {
@@ -151,6 +152,29 @@ window.onload = function () {
     };
 
    })
+
+   function deleteAllContacts() {
+        contactDB.contacts = [];
+        contactDB.nextId = 1;
+        
+        let items = document.querySelectorAll('.contacts-item');
+        
+        
+        [...items].forEach(e => {
+            let count = e.parentElement.previousElementSibling.querySelector('.table__item-count')
+            count.textContent = '';
+            e.remove();
+        })
+
+        
+    }
+
+    const btnAllDel = document.querySelector('.btn-clear');
+
+    btnAllDel.addEventListener('click', () => {
+        deleteAllContacts();
+    })
+
 
 
 }
