@@ -124,9 +124,31 @@ window.onload = function () {
         } else if (count.textContent.trim().length > 0 && i.classList.contains('contact-table__contacts--active')) {
             i.classList.remove('contact-table__contacts--active');
         }
+
+        const contactsItem = tableInner.parentNode.querySelectorAll('.contacts-item');
+        [...contactsItem].forEach(e => {
+            const btnDel = e.querySelector('.contacts-item-delete');
+            btnDel.addEventListener('click', () => {
+                const parentElement = e.parentNode;
+                const count = parentElement.previousElementSibling.querySelector('.table__item-count');
+                idDel = btnDel.parentNode.id;
+                btnDel.parentNode.remove();
+                if (parentElement.childElementCount > 0) {
+                    count.textContent = parentElement.childElementCount;
+                } else {
+                    count.textContent = '';
+                }
+                
+                deleteContact(idDel);
+            })
+        })
+        
     });
 
-    
+    function deleteContact(idDel) {
+        const indexDel = contactDB.contacts.findIndex(contact => +contact.id === +idDel);
+        contactDB.contacts.splice(indexDel, 1);
+    };
 
    })
 
